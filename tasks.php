@@ -51,27 +51,29 @@ $tasks = $stmt->fetchAll();
     <div class="container">
   <h2>Список задач</h2>
 
-  <form method="post">
+  <form class="form-task" method="post">
     <input type="text" name="new_task" placeholder="Новая задача" required>
-    <button type="submit">Добавить</button>
+    <button type="submit"><img src="assets/icons/plus.svg">Добавить</button>
   </form>
 
   <ul>
-    <?php foreach ($tasks as $task): ?>
-      <li>
-        <span style="text-decoration: <?= $task['is_done'] ? 'line-through' : 'none' ?>">
-          <?= htmlspecialchars($task['title']) ?>
-        </span>
-        <a href="?done=<?= $task['id'] ?>">Сделано</a>
+  <?php foreach ($tasks as $task): ?>
+    <li class="<?= $task['is_done'] ? 'done' : '' ?>">
+      <form method="get" class="task-toggle-form">
+        <input type="hidden" name="done" value="<?= $task['id'] ?>">
+        <input type="checkbox" onchange="this.form.submit()" <?= $task['is_done'] ? 'checked' : '' ?>>
+      </form>
+      <span><?= htmlspecialchars($task['title']) ?></span>
+      <div class="actions">
         <a href="?delete=<?= $task['id'] ?>" onclick="return confirm('Удалить задачу?')">Удалить</a>
-      </li>
-    <?php endforeach; ?>
+      </div>
+    </li>
+  <?php endforeach; ?>
   </ul>
 
     <div class="links">
-        <a href="profile.php">Профиль</a>
-        <a href="logout.php">Выйти</a>
-    </p>
+        <a href="profile.php"><img src="assets/icons/user.svg">Профиль</a>
+        <a href="logout.php"><img src="assets/icons/log-out.svg">Выйти</a>
     </div>
   </div>
 </body>

@@ -30,8 +30,8 @@ $user = $stmt->fetch();
     <p><strong>Дата регистрации:</strong> <?= $user['created_at'] ?></p>
 
     <div class="links">
-      <a href="tasks.php">Назад к задачам</a>
-      <a href="logout.php">Выйти</a>
+      <a href="tasks.php"><img src="assets/icons/arrow-left.svg">Назад к задачам</a>
+      <a href="logout.php"><img src="assets/icons/log-out.svg">Выйти</a>
     </div>
   </div>
 </body>

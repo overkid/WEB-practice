@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <div class="container">
   <h2>Регистрация</h2>
-  <form method="post">
+  <form class="form-reg" method="post">
     <input type="email" name="email" placeholder="Email" required>
     <input type="password" name="password" placeholder="Пароль" required>
-    <button type="submit">Зарегистрироваться</button>
+    <button class="btn-reg" type="submit">Зарегистрироваться</button>
     <?php if (!empty($error)) echo "<p>$error</p>"; ?>
   </form>
-  <div class="links">
+  <div class="links-reg">
     <p>Уже есть аккаунт? <a href="login.php">Войти</a></p>
   </div>
   </div>

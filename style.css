@@ -17,35 +17,51 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 80px auto 0;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-top: 80px;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 1.75rem;
+  font-size: 28px;
 }
 
-form {
+/* Form Styles */
+.form-task {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+.form-reg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+form input {
+  flex: 1;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 10px;
-  transition: border-color 0.3s;
+  transition: border-color 0.4s;
+}
+
+form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: border-color 0.4s;
 }
 
 form input:focus {
@@ -54,14 +70,35 @@ form input:focus {
 }
 
 form button {
-  padding: 10px;
-  font-size: 1rem;
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #007BFF;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+}
+
+.btn-reg {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
   margin-top: 8px;
 }
 
@@ -69,42 +106,71 @@ form button:hover {
   background-color: #0056b3;
 }
 
+/* Task List */
 ul {
   list-style: none;
 }
 
 ul li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
+  word-break: break-word;
 }
 
 ul li:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+ul li.done span {
+  text-decoration: line-through;
+  color: #777;
+}
+
+ul li form.task-toggle-form {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  margin-bottom: 0px;
+}
+
+ul li input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
 ul li span {
   flex: 1;
+  font-size: 16px;
 }
 
-ul li a {
-  margin-left: 24px;
+ul li .actions a {
+  margin-left: 10px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #007BFF;
-  transition: color 0.3s;
+  transition: color 0.4s;
 }
 
-ul li a:hover {
+ul li .actions a:hover {
   color: #0056b3;
+}
+
+/* Links */
+.links-reg a {
+  color: #007BFF;
+  text-decoration: none;
 }
 
 .links a {
   color: #007BFF;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .links a:hover {
@@ -112,7 +178,42 @@ ul li a:hover {
 }
 
 .links {
-    margin-top: 24px;
-    display: flex;
-    gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input[type="text"],
+  form button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul li .actions {
+    margin-top: 5px;
+  }
+
+  ul li form.task-toggle-form {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
 }
