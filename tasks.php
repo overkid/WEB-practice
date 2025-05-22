@@ -66,6 +66,7 @@ $tasks = $stmt->fetchAll();
       <span><?= htmlspecialchars($task['title']) ?></span>
       <div class="actions">
         <a href="?delete=<?= $task['id'] ?>" onclick="return confirm('Удалить задачу?')">Удалить</a>
+        <a href="?delete=<?= $task['id'] ?>" onclick="return confirm('Удалить задачу?')"><img src="assets/icons/minus-circle.svg"></a>
       </div>
     </li>
   <?php endforeach; ?>
